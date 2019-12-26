@@ -1,0 +1,9 @@
+<h2> Who do you want to subscribe to? </h2>
+    <%= form_for @conn, Routes.subscribe_path(@conn, :create), fn u-> %>
+    <div>
+  <%= text_input u, :sub %>
+<div>
+<div>
+  <%= submit "Subscribe"%>
+</div>
+<%end%>

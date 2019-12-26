@@ -1,0 +1,17 @@
+<h2>Login</h2>
+
+<%= form_for @conn, Routes.usage_path(@conn, :create), fn u-> %>
+<div>
+  <%= label u, :Twitter_Handle %>
+  <%= text_input u, :handle%>
+</div>
+
+<div>
+  <%= label u, :Password %>
+  <%= password_input u, :crypto_pass%>
+</div>
+
+<div>
+  <%=submit "Log in"%>
+</div>
+<%end%>

@@ -1,0 +1,11 @@
+<h2>Post a new tweet</h2>
+
+<%= form_for @changesetTweet, Routes.tweet_path(@conn, :create), fn t-> %>
+<div>
+  <%= text_input t, :tweet%>
+</div>
+
+<div>
+  <%=submit "Post"%>
+</div>
+<%end%>

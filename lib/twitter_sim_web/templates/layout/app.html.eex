@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TwitterSim · Phoenix Framework</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+  </head>
+  <body>
+    <header>
+      <section class="container">
+        <nav role="navigation">
+          <ul>
+            <li>
+            <%= if @is_active? do %>
+              <p> Logged in as "<%= @active.handle %>"</p>
+              <script>window.handle = <%= @active.handle %></script>
+              <%= link "Log Out", to: Routes.usage_path(@conn, :delete), method: :delete, class: "button" %>
+            <% else %>
+              <%= link "Sign up", to: Routes.signup_path(@conn, :new), class: "button" %>
+          <% end %>
+          </ul>
+        </nav>
+        <a href="http://phoenixframework.org/" class="phx-logo">
+          <img src="https://thissound.co.uk/wp-content/uploads/2018/10/twitter-inverted-logo.png" alt = "Twitter logo"/>
+        </a>
+      </section>
+    </header>
+    <main role="main" class="container">
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <%= render @view_module, @view_template, assigns %>
+    </main>
+    <script>window.userToken = "<%= assigns[:user_token] %>"</script>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

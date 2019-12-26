@@ -1,0 +1,8 @@
+<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "Twitter" %></h1>
+  <p>A simulation by Aditya and Sai</p>
+</section>
+
+<section class="row">
+
+</section>

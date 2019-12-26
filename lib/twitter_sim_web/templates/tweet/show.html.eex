@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+
+<h3><%= @ref_tweet.tweet %></h3>
+
+<% alias TwitterSim.Tweet %>
+<% alias TwitterSim.Repo %>
+
+<div class ="row">
+
+
+<div>
+  <%= link "Retweet", to: Routes.tweet_path(@conn, :create, %{"tweet" =>  %{"tweet" => "retweet: #{@ref_tweet.tweet}"}}),  method: :create, class: "button" %>
+ </div> 
+ <div>
+  <%= link "Delete", to: Routes.tweet_path(@conn, :delete, @ref_tweet.id), method: :delete, class: "button" %>
+  </div>
+  <!-- <%= link "Done", to: Routes.tweet_path(@conn, :index) %> -->
+</div>
+
+  </body>
+  </html>

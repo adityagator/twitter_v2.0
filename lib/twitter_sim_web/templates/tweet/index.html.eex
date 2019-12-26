@@ -1,0 +1,42 @@
+<%# <head>
+<meta http-equiv="refresh" content="0.5">
+</head> %>
+
+<div class="col">
+
+  <div>
+    <h2>News feed</h2>
+    <ul id = "newsFeed">
+       <%= for t <- @news do %>
+       <%= for x <- t do %>
+      <li><%= link x.tweet, to: Routes.tweet_path(@conn, :show, x.id) %></li>
+      <%= end %>
+      <%= end %>
+      
+    </ul>
+  </div>
+
+  <div>
+    <h2>Your mentions</h2>
+    <ul>
+      <%= for t <- @my_mentions do %>
+        <li><%= t.tweet %></li>
+        <% end %>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Your tweets</h2>
+    <ul id = "myTweets">
+       <%= for t <- @my_tweets do %>
+      <li><%= link t.tweet, to: Routes.tweet_path(@conn, :show, t.id) %></li>
+      <% end %>
+    </ul>
+  </div>
+  </div>
+
+  <a href = "subscribe" class = "button">Subscribe to new users</a>
+  <a href = "tweets/new" class = "button">New tweet</a>
+  <a href = "live" class = "button">Live tweet</a>
+
+  </form>
